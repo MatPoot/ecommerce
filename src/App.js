@@ -5,6 +5,7 @@ import './App.css';
 import HomePage from './pages/homepage/homepage.component';
 import './pages/homepage/homepage-styles.scss';
 import ShopPage from './pages/shop/shop.component';
+import Header from './components/header/header.component';
 
 
 
@@ -23,11 +24,13 @@ const TopicDetail = () => (
 function App() {
   return (
     <div>
+      <Header></Header>
       <Switch>
      <Route exact path='/' component={HomePage} /> 
      <Route path='/shop' component={ShopPage} /> 
      <Route path='/topics/:topicid' component={TopicDetail} /> 
      </Switch>
+     
     </div>
   
   );
