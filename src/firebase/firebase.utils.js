@@ -13,16 +13,16 @@ const config = {
   measurementId: "G-GTNPKF4600"
 };
 
-export const createUserProfileDocument = async (userAuth, addtionalData) => {
+export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return; //evaluate for null
 
-  console.log(firestore.doc("users/test"));
+  // console.log(firestore.doc("users/test"));
 
   const userRef = firestore.doc(`users/${userAuth.uid}`);
 
   const snapShot = await userRef.get();
 
-  console.log(snapShot);
+  // console.log(snapShot);
 
   if (!snapShot.exists) {
     // if no existing logged in snapshot, create another one to prevent doubles
@@ -34,12 +34,14 @@ export const createUserProfileDocument = async (userAuth, addtionalData) => {
         displayName,
         email,
         createdAt,
-        ...addtionalData
+        ...additionalData
       });
-    } catch (e) {
-      console.log(`error creating user`, e.message);
+    } catch (error) {
+      console.log(`error creating user`, error.message);
     }
   }
+
+  return userRef;
 };
 
 firebase.initializeApp(config);

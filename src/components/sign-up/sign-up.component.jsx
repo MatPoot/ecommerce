@@ -18,7 +18,7 @@ class SignUp extends React.Component {
     };
   }
 
-  handlesubmit = async event => {
+  handleSubmit = async event => {
     event.preventDefault();
 
     const { displayName, email, password, confirmPassword } = this.state;
@@ -33,15 +33,15 @@ class SignUp extends React.Component {
       );
 
       await createUserProfileDocument(user, { displayName });
-      this.setstate({
+      this.setState({
         // clears form
         displayName: "",
         email: "",
         password: "",
         confirmPassword: ""
       });
-    } catch (e) {
-      console.error(e);
+    } catch (error) {
+      console.error(error);
     }
   };
 
