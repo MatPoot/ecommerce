@@ -1,13 +1,10 @@
-import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import React from "react";
 
 import "./header.styles.scss";
-
 import { auth } from "../../firebase/firebase.utils";
-
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-
-import { Link } from "react-router-dom";
 
 const Header = ({ currentUser }) => (
   <div className="header">
