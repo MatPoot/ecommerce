@@ -5,6 +5,8 @@ import React from "react";
 import "./header.styles.scss";
 import { auth } from "../../firebase/firebase.utils";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+import CartIcon from "../cart-icon/cart-icon.component";
 
 const Header = ({ currentUser }) => (
   <div className="header">
@@ -25,7 +27,9 @@ const Header = ({ currentUser }) => (
       ) : (
         <Link className="option" to="/signin"></Link>
       )}
+      <CartIcon></CartIcon>
     </div>
+    <CartDropdown></CartDropdown>
   </div>
 );
 const mapStateToProps = state => ({
